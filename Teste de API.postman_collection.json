@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "23e8cef4-4df4-4719-8b75-07f5fd67a4bc",
+		"name": "Teste de API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22045037"
+	},
+	"item": [
+		{
+			"name": "Teste",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Filtrar Produto",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Criar produto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"nome\": \"Mouse\",\r\n\"preco\": \"3.00\",\r\n\"quantidade\": 2,\r\n\"categoria\": 1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/produtos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"produtos",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
