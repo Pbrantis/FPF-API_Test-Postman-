@@ -1,0 +1,170 @@
+{
+	"info": {
+		"_postman_id": "23e8cef4-4df4-4719-8b75-07f5fd67a4bc",
+		"name": "Teste de API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22045037"
+	},
+	"item": [
+		{
+			"name": "Teste",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "senha_dockerhub",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "usuario_dockerhub",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"nome\": \"Mouse\",\r\n\"preco\": \"3.00\",\r\n\"quantidade\": 2,\r\n\"categoria\": 1\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:8000?produtos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"query": [
+						{
+							"key": "produtos",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filtrar Produto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status Code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Name Test\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.nome).to.eql(\"Mouse\");\r",
+							"});\r",
+							"pm.test(\"Price Test\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.preco).to.eql('3.00');\r",
+							"});\r",
+							"pm.test(\"Quantity Test\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.quantidade).to.eql(2);\r",
+							"});\r",
+							"pm.test(\"Category Test\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.categoria).to.eql(1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "senha_dockerhub",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "usuario_dockerhub",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/produtos/1/?format=json",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"produtos",
+						"1",
+						""
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar produto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"nome\": \"Mouse\",\r\n\"preco\": \"3.00\",\r\n\"quantidade\": 2,\r\n\"categoria\": 1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/produtos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"produtos",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
