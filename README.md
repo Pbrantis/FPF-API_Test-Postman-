@@ -13,6 +13,10 @@ This API test has the following requests:
 
 Make sure you have [Docker](https://www.docker.com/) and [Postman](https://www.postman.com/) installed in your computer.
 
+Used in this project the following versions:
+ - Postman v9.24.0
+ - Docker Desktop v4.10.1
+
 ## Step by Step
 
  - Clone git on this [project](https://github.com/Vanilton18/loja-api.git)
